@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://kit.fontawesome.com/ea6d4fec5e.js" crossorigin="anonymous"></script>
+	<style>
+		*{
+			margin: 0%;
+		}
+		body{
+			background-image: url("https://images.unsplash.com/photo-1618588507085-c79565432917?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+			margin-top: 15%;
+		}
+		.div1{
+			border: 1px solid black;
+			width: 30%;
+			margin: auto;
+			background-color: lightgrey;
+			padding: 1%;
+		}
+		.list-type{
+			list-style: none;
+		}
+		.listitem{
+			font-size: 3rem;
+		}
+		#newTodo{
+			background-color: lightcyan;
+			padding: 1%;
+		}
+		.submit{
+			background-color: blue;
+			color: white;
+			border-radius: 30px;
+			width: 15%;
+			padding: 1%;
+			margin-top: 2.5%;
+			margin-left: 3%;
+		}
+		.submit:hover{
+			background-color: lightgoldenrodyellow; 
+			color: deeppink;
+		}
+	</style>
+	<script type="text/javascript">
+		function todo(){
+			var newTodo=document.getElementById("newTodo").value
+			document.getElementById("newTodo").value=""
+			if(newTodo===""){
+				alert="Enter a todo"
+			}
+			else{
+				addTodo(newTodo)
+			}
+			addTodo(newTodo)                                            
+		}
+		function addTodo(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li")
+			console.log(li)
+			li.innerHTML=`
+			<span class="listitem">${newValue}</span>
+			<i class="fa-solid fa-rectangle-xmark"></i>
+			`
+			li.classList.add("list-type")
+			ul.appendChild(li)
+		}
+	</script>
+</head>
+<body>
+	<div class="div1">
+	<input type="text" value="" id="newTodo" placeholder="Enter a todo" />
+	<ul>
+	</ul>
+	<button class="submit" onclick="todo()">Submit</button>
+	</div>
+</body>
+</html>
